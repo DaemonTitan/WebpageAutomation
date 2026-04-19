@@ -22,6 +22,7 @@ test.beforeEach(async({page, homePage}) => {
     await page.waitForTimeout(2000);
 
     // Home Page set pickup store
+    await homePage.logoIsVisible();
     await homePage.clickSetLocationButton();
     await homePage.selectPickUp();
     await homePage.enterSearchQuery(storeData.storeLocation);

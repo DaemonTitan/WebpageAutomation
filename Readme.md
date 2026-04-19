@@ -23,22 +23,34 @@ WebpageAutomation/
 │   │   ├── env.ts
 │   │   └── pagefixture.ts
 │   ├── data/
+│   │   ├── fieldValidationData.json
 │   │   ├── storeDetails.json
 │   │   └── userDetail.json
 │   ├── pages/
 │   │   ├── basePage.ts
-│   │   ├── homepage.ts
+│   │   ├── homePage.ts
 │   │   ├── menuPage.ts
 │   │   ├── productPage.ts
 │   │   ├── myCartPage.ts
 │   │   ├── checkoutPage.ts
 │   │   └── orderConfirmationPage.ts
 │   └── tests/
-│       ├── orderProcessTest.spec.ts
-│       └── test.spec.ts
+│       ├── guestInfoValidation.spec.ts
+│       └── orderProcessTest.spec.ts
 ├── playwright.config.ts
 ├── package.json
+├── package-lock.json
+├── Readme.md
 └── tsconfig.json
+```
+
+Generated folders after test/report runs:
+
+```text
+allure-report/
+playwright-report/
+test-results/
+../reports/allure-result/
 ```
 
 ## Framework Overview
@@ -50,6 +62,7 @@ This framework uses the Page Object Model pattern.
 - Shared Playwright fixtures live in `src/config/pagefixture.ts`.
 - Environment selection is handled by `src/config/env.ts`.
 - Test data is stored in JSON files under `src/data`.
+- Guest field validation data is stored in `src/data/fieldValidationData.json`.
 - Browser projects are configured in `playwright.config.ts`.
 
 The main order flow test is:
@@ -58,7 +71,13 @@ The main order flow test is:
 src/tests/orderProcessTest.spec.ts
 ```
 
-The test uses page objects such as `HomePage`, `MenuPage`, `ProductPage`, `MyCartPage`, and `CheckoutPage` through custom fixtures.
+Guest information field validation is covered in:
+
+```text
+src/tests/guestInfoValidation.spec.ts
+```
+
+The tests use page objects such as `HomePage`, `MenuPage`, `ProductPage`, `MyCartPage`, `CheckoutPage`, and `OrderConfirmationPage` through custom fixtures.
 
 ## Prerequisites
 
@@ -163,6 +182,12 @@ Run the order process test only:
 npx playwright test src/tests/orderProcessTest.spec.ts
 ```
 
+Run the guest information validation test only:
+
+```bash
+npx playwright test src/tests/guestInfoValidation.spec.ts
+```
+
 Run only Chromium:
 
 ```bash
@@ -212,11 +237,17 @@ playwright-report/
 Allure result output is configured in `playwright.config.ts`. Depending on the reporter configuration and local runs, results may be written to:
 
 ```text
-allure-results/
 ../reports/allure-result
+allure-results/
 ```
 
-Generate an Allure HTML report from local `allure-results`:
+Generate an Allure HTML report from the configured result folder:
+
+```bash
+npx allure-commandline generate ../reports/allure-result --clean -o allure-report
+```
+
+If your local run produced `allure-results/` instead, generate from that folder:
 
 ```bash
 npx allure-commandline generate allure-results --clean -o allure-report
@@ -295,6 +326,7 @@ Example:
 await homePage.clickSetLocationButton();
 await homePage.selectPickUp();
 await homePage.enterSearchQuery(storeData.storeLocation);
+await homePage.selectTargetLocation(storeData.storeLocation);
 await homePage.selectTargetStoreFromList(storeData.storeLocation);
 await homePage.clickViewMenuButton();
 ```
@@ -310,6 +342,12 @@ This allows tests to use page objects directly:
 ```ts
 test('Order process', async ({ homePage, menuPage, productPage }) => {
   await homePage.clickSetLocationButton();
+  await homePage.selectPickUp();
+  await homePage.enterSearchQuery('Dee Why');
+  await homePage.selectTargetLocation('Dee Why');
+  await homePage.selectTargetStoreFromList('Dee Why');
+  await homePage.clickViewMenuButton();
+  await menuPage.selectSideMenu('SIDES & DESSERTS');
   await menuPage.selectProduct('4 Dipping Sauces');
   await productPage.clickAddToOrderButton();
 });

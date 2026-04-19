@@ -21,9 +21,6 @@ export class CheckoutPage extends BasePage {
     private readonly cardNumberFrame: FrameLocator;
     private readonly expiryDateFrame: FrameLocator;
     private readonly securityCodeFrame: FrameLocator;
-    private readonly cardNumberField: Locator;
-    private readonly expiryDateField: Locator;
-    private readonly securityCodeField: Locator;
     private readonly payButon: Locator;
 
     constructor(page: Page) {
@@ -43,14 +40,9 @@ export class CheckoutPage extends BasePage {
         this.phoneNumberAlert = page.locator("div[id='user-maskinput'] span[role='alert']");
         this.addPaymentMethod = page.getByTestId('pay-button');
         this.manualCardEntryButton = page.locator("button[class='adyen-checkout__button adyen-checkout__button--secondary']");
-        
         this.cardNumberFrame = page.frameLocator('iframe[title="Iframe for card number"]');
         this.expiryDateFrame = page.frameLocator('iframe[title="Iframe for expiry date"]');
         this.securityCodeFrame = page.frameLocator('iframe[title="Iframe for security code"]');
-        
-        this.cardNumberField = this.cardNumberFrame.getByRole('textbox', { name: 'Card number' })
-        this.expiryDateField = this.expiryDateFrame.getByRole('textbox', { name: 'Expiry date' })
-        this.securityCodeField = this.securityCodeFrame.getByRole('textbox', { name: 'Security code' })
         this.payButon = page.locator("button[class='adyen-checkout__button adyen-checkout__button--pay']")
 
     }

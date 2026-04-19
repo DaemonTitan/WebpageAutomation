@@ -3,18 +3,14 @@ import { BasePage } from '../pages/basePage';
 import { ProductPage } from './productPage';
 
 export class MenuPage extends BasePage {
-    private readonly menuLabel: Locator;
     private readonly sideMenu: Locator;
-    private readonly selectedCategoryTitle: Locator;
     private readonly itemNameLabel: Locator;
     private readonly productCard: Locator;
     
 
     constructor(page: Page) {
         super(page);
-        this.menuLabel = page.locator('.kfc-menu-title')
         this.sideMenu = page.getByTestId('category-click-test');
-        this.selectedCategoryTitle = page.locator('h1, h2');
         this.itemNameLabel = page.locator('[data-testid="plp-menu-card-header"]:visible');
         this.productCard = page.locator('.plp-item-card:visible')
     }
