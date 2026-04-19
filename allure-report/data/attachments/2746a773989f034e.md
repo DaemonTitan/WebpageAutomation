@@ -1,0 +1,824 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: orderProcessTest.spec.ts >> Order process
+- Location: src/tests/orderProcessTest.spec.ts:28:5
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for getByTestId('add-to-cart-handler')
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e5]:
+  - generic [ref=e6]:
+    - banner [ref=e7]:
+      - generic [ref=e9]:
+        - img "KFC LOGO" [ref=e11] [cursor=pointer]
+        - generic [ref=e12]:
+          - generic [ref=e14] [cursor=pointer]: Menu
+          - generic [ref=e16] [cursor=pointer]: Promos & Rewards
+          - generic [ref=e18] [cursor=pointer]: Rewards 2.0
+          - generic [ref=e20] [cursor=pointer]: Catering
+        - generic [ref=e21]:
+          - generic [ref=e23] [cursor=pointer]: Sign In
+          - button "Close" [ref=e29] [cursor=pointer]: "0"
+    - generic [ref=e34]:
+      - generic [ref=e36]:
+        - img "location-icon" [ref=e37]
+        - generic [ref=e39]: "Pick up from: KFC Dee Why"
+      - button "change" [ref=e40] [cursor=pointer]: Change
+  - generic [ref=e41]:
+    - generic [ref=e43]:
+      - generic [ref=e44]:
+        - heading "MENU" [level=2] [ref=e46]
+        - list [ref=e47]:
+          - listitem [ref=e48]: FEATURED OFFERS
+          - listitem [ref=e49]: BURGERS
+          - listitem [ref=e50]: BOXED MEALS
+          - listitem [ref=e51]: CHICKEN
+          - listitem [ref=e52]: SNACK HACKS
+          - listitem [ref=e53]: PROTEIN PICKS
+          - listitem [ref=e54]: SHARED MEALS
+          - listitem [ref=e55]: EVERYDAY VALUE
+          - listitem [ref=e56]: SIDES & DESSERTS
+          - listitem [ref=e57]: COLD DRINKS
+      - generic [ref=e58]:
+        - textbox "Search our menu" [ref=e61]
+        - generic [ref=e64]:
+          - generic [ref=e66]:
+            - heading "FEATURED OFFERS" [level=2] [ref=e68]
+            - generic [ref=e69]:
+              - generic [ref=e73] [cursor=pointer]:
+                - generic [ref=e74]: $6.95 Giant Snack Pack
+                - generic [ref=e77]: $6.95
+              - generic [ref=e78] [cursor=pointer]:
+                - generic [ref=e80]: ‌
+                - generic [ref=e82]:
+                  - generic [ref=e83]: Original Crispy Tower® Burger
+                  - generic [ref=e86]: $9.95
+              - generic [ref=e87] [cursor=pointer]:
+                - generic [ref=e89]: ‌
+                - generic [ref=e91]:
+                  - generic [ref=e92]: Zinger® Tower® Burger
+                  - generic [ref=e95]: $9.95
+              - generic [ref=e96] [cursor=pointer]:
+                - generic [ref=e98]: ‌
+                - generic [ref=e100]:
+                  - generic [ref=e101]: Tower® Burger Combo
+                  - generic [ref=e104]: $13.95
+              - generic [ref=e105] [cursor=pointer]:
+                - generic [ref=e107]: ‌
+                - generic [ref=e109]:
+                  - generic [ref=e110]: Tower® Burger Box
+                  - generic [ref=e113]: $17.95
+              - generic [ref=e114] [cursor=pointer]:
+                - generic [ref=e116]: ‌
+                - generic [ref=e118]:
+                  - generic [ref=e119]: Original Crispy Tower® Stacker
+                  - generic [ref=e122]: $12.45
+              - generic [ref=e123] [cursor=pointer]:
+                - generic [ref=e125]: ‌
+                - generic [ref=e127]:
+                  - generic [ref=e128]: Zinger® Tower® Stacker
+                  - generic [ref=e131]: $12.45
+              - generic [ref=e132] [cursor=pointer]:
+                - generic [ref=e134]: ‌
+                - generic [ref=e136]:
+                  - generic [ref=e137]: Tower® Stacker Combo
+                  - generic [ref=e140]: $16.95
+              - generic [ref=e141] [cursor=pointer]:
+                - generic [ref=e143]: ‌
+                - generic [ref=e145]:
+                  - generic [ref=e146]: Tower® Stacker Box
+                  - generic [ref=e149]: $19.95
+              - generic [ref=e150] [cursor=pointer]:
+                - generic [ref=e152]: ‌
+                - generic [ref=e154]:
+                  - generic [ref=e155]: Original Crispy Tower® Twister
+                  - generic [ref=e158]: $10.45
+              - generic [ref=e159] [cursor=pointer]:
+                - generic [ref=e161]: ‌
+                - generic [ref=e163]:
+                  - generic [ref=e164]: Zinger® Tower® Twister
+                  - generic [ref=e167]: $10.45
+              - generic [ref=e168] [cursor=pointer]:
+                - generic [ref=e170]: ‌
+                - generic [ref=e172]:
+                  - generic [ref=e173]: Tower® Twister Combo
+                  - generic [ref=e176]: $14.45
+              - generic [ref=e177] [cursor=pointer]:
+                - generic [ref=e179]: ‌
+                - generic [ref=e181]:
+                  - generic [ref=e182]: Tower® Twister Box
+                  - generic [ref=e185]: $17.95
+              - generic [ref=e186] [cursor=pointer]:
+                - generic [ref=e188]: ‌
+                - generic [ref=e190]:
+                  - generic [ref=e191]: Hashbrown
+                  - generic [ref=e194]: $2.50
+              - generic [ref=e195] [cursor=pointer]:
+                - generic [ref=e197]: ‌
+                - generic [ref=e199]:
+                  - generic [ref=e200]: Family Feast
+                  - generic [ref=e203]: $39.95
+              - generic [ref=e207] [cursor=pointer]:
+                - generic [ref=e208]: Footy Feed
+                - generic [ref=e211]: $29.95
+          - generic [ref=e213]:
+            - heading "BURGERS" [level=2] [ref=e215]
+            - generic [ref=e216]:
+              - generic [ref=e217] [cursor=pointer]:
+                - generic [ref=e219]: ‌
+                - generic [ref=e221]:
+                  - generic [ref=e222]: Original Crispy Tower® Burger
+                  - generic [ref=e225]: $9.95
+              - generic [ref=e226] [cursor=pointer]:
+                - generic [ref=e228]: ‌
+                - generic [ref=e230]:
+                  - generic [ref=e231]: Zinger® Tower® Burger
+                  - generic [ref=e234]: $9.95
+              - generic [ref=e235] [cursor=pointer]:
+                - generic [ref=e237]: ‌
+                - generic [ref=e239]:
+                  - generic [ref=e240]: Tower® Burger Combo
+                  - generic [ref=e243]: $13.95
+              - generic [ref=e244] [cursor=pointer]:
+                - generic [ref=e246]: ‌
+                - generic [ref=e248]:
+                  - generic [ref=e249]: Original Crispy Tower® Stacker
+                  - generic [ref=e252]: $12.45
+              - generic [ref=e253] [cursor=pointer]:
+                - generic [ref=e255]: ‌
+                - generic [ref=e257]:
+                  - generic [ref=e258]: Zinger® Tower® Stacker
+                  - generic [ref=e261]: $12.45
+              - generic [ref=e262] [cursor=pointer]:
+                - generic [ref=e264]: ‌
+                - generic [ref=e266]:
+                  - generic [ref=e267]: Tower® Stacker Combo
+                  - generic [ref=e270]: $16.95
+              - generic [ref=e274] [cursor=pointer]:
+                - generic [ref=e275]: Zinger® Burger
+                - generic [ref=e278]: $8.45
+              - generic [ref=e282] [cursor=pointer]:
+                - generic [ref=e283]: Original Crispy Burger
+                - generic [ref=e286]: $8.45
+              - generic [ref=e290] [cursor=pointer]:
+                - generic [ref=e291]: Original Crispy Burger Combo
+                - generic [ref=e294]: $12.45
+              - generic [ref=e298] [cursor=pointer]:
+                - generic [ref=e299]: Original Crispy Bacon & Cheese Burger
+                - generic [ref=e302]: $9.45
+              - generic [ref=e306] [cursor=pointer]:
+                - generic [ref=e307]: Original Crispy Bacon & Cheese Burger Combo
+                - generic [ref=e310]: $13.45
+              - generic [ref=e314] [cursor=pointer]:
+                - generic [ref=e315]: Original Crispy BBQ Bacon Stacker® Burger
+                - generic [ref=e318]: $12.95
+              - generic [ref=e322] [cursor=pointer]:
+                - generic [ref=e323]: Original Crispy BBQ Bacon Stacker® Burger Combo
+                - generic [ref=e326]: $16.95
+              - generic [ref=e330] [cursor=pointer]:
+                - generic [ref=e331]: Double Tender™ Burger
+                - generic [ref=e334]: $6.45
+              - generic [ref=e338] [cursor=pointer]:
+                - generic [ref=e339]: Double Tender™ Burger Combo
+                - generic [ref=e342]: $10.45
+              - generic [ref=e346] [cursor=pointer]:
+                - generic [ref=e347]: Zinger® Bacon & Cheese Burger
+                - generic [ref=e350]: $9.45
+              - generic [ref=e354] [cursor=pointer]:
+                - generic [ref=e355]: Zinger® Bacon & Cheese Burger Combo
+                - generic [ref=e358]: $13.45
+              - generic [ref=e362] [cursor=pointer]:
+                - generic [ref=e363]: Zinger Stacker® Burger
+                - generic [ref=e366]: $11.95
+              - generic [ref=e370] [cursor=pointer]:
+                - generic [ref=e371]: Zinger Stacker® Burger Combo
+                - generic [ref=e374]: $15.95
+              - generic [ref=e378] [cursor=pointer]:
+                - generic [ref=e379]: Zinger® Crunch Burger™
+                - generic [ref=e382]: $10.45
+              - generic [ref=e386] [cursor=pointer]:
+                - generic [ref=e387]: Zinger® Crunch Burger™ Combo
+                - generic [ref=e390]: $14.45
+          - generic [ref=e392]:
+            - heading "BOXED MEALS" [level=2] [ref=e394]
+            - generic [ref=e395]:
+              - generic [ref=e396] [cursor=pointer]:
+                - generic [ref=e398]: ‌
+                - generic [ref=e400]:
+                  - generic [ref=e401]: Tower® Twister Box
+                  - generic [ref=e404]: $17.95
+              - generic [ref=e405] [cursor=pointer]:
+                - generic [ref=e407]: ‌
+                - generic [ref=e409]:
+                  - generic [ref=e410]: Tower® Stacker Box
+                  - generic [ref=e413]: $19.95
+              - generic [ref=e414] [cursor=pointer]:
+                - generic [ref=e416]: ‌
+                - generic [ref=e418]:
+                  - generic [ref=e419]: Tower® Burger Box
+                  - generic [ref=e422]: $17.95
+              - generic [ref=e426] [cursor=pointer]:
+                - generic [ref=e427]: Zinger® Burger Box
+                - generic [ref=e430]: $14.95
+              - generic [ref=e434] [cursor=pointer]:
+                - generic [ref=e435]: Mega Chicken Box
+                - generic [ref=e438]: $18.95
+              - generic [ref=e442] [cursor=pointer]:
+                - generic [ref=e443]: Original Crispy Burger Box
+                - generic [ref=e446]: $14.45
+              - generic [ref=e447] [cursor=pointer]:
+                - generic [ref=e449]: ‌
+                - generic [ref=e451]:
+                  - generic [ref=e452]: Original Crispy Bacon & Cheese Burger Box
+                  - generic [ref=e455]: $15.45
+              - generic [ref=e456] [cursor=pointer]:
+                - generic [ref=e458]: ‌
+                - generic [ref=e460]:
+                  - generic [ref=e461]: Original Crispy BBQ Bacon Stacker® Burger Box
+                  - generic [ref=e464]: $18.95
+              - generic [ref=e465] [cursor=pointer]:
+                - generic [ref=e467]: ‌
+                - generic [ref=e469]:
+                  - generic [ref=e470]: 3 Piece Box
+                  - generic [ref=e471]:
+                    - generic [ref=e473]: $14.95
+                    - generic [ref=e475]: 1500 kJ
+              - generic [ref=e476] [cursor=pointer]:
+                - generic [ref=e478]: ‌
+                - generic [ref=e480]:
+                  - generic [ref=e481]: Original Tenders™ Box
+                  - generic [ref=e484]: $14.95
+              - generic [ref=e485] [cursor=pointer]:
+                - generic [ref=e487]: ‌
+                - generic [ref=e489]:
+                  - generic [ref=e490]: Zinger® Bacon & Cheese Burger Box
+                  - generic [ref=e493]: $16.45
+              - generic [ref=e494] [cursor=pointer]:
+                - generic [ref=e496]: ‌
+                - generic [ref=e498]:
+                  - generic [ref=e499]: Zinger Stacker® Burger Box
+                  - generic [ref=e500]:
+                    - generic [ref=e502]: $18.95
+                    - generic [ref=e504]: 99999 kJ
+              - generic [ref=e505] [cursor=pointer]:
+                - generic [ref=e507]: ‌
+                - generic [ref=e509]:
+                  - generic [ref=e510]: Zinger® Crunch Burger™ Box
+                  - generic [ref=e513]: $17.45
+              - generic [ref=e514] [cursor=pointer]:
+                - generic [ref=e516]: ‌
+                - generic [ref=e518]:
+                  - generic [ref=e519]: Original Crunch Twister® Box
+                  - generic [ref=e522]: $16.45
+              - generic [ref=e523] [cursor=pointer]:
+                - generic [ref=e525]: ‌
+                - generic [ref=e527]:
+                  - generic [ref=e528]: Zinger® Crunch Twister® Box
+                  - generic [ref=e531]: $16.45
+          - generic [ref=e533]:
+            - heading "CHICKEN" [level=2] [ref=e535]
+            - generic [ref=e536]:
+              - generic [ref=e537] [cursor=pointer]:
+                - generic [ref=e539]: ‌
+                - generic [ref=e541]:
+                  - generic [ref=e542]: 3 Pieces Wicked Boneless
+                  - generic [ref=e543]:
+                    - generic [ref=e545]: $8.95
+                    - generic [ref=e547]: 1200 kJ
+              - generic [ref=e548] [cursor=pointer]:
+                - generic [ref=e550]: ‌
+                - generic [ref=e552]:
+                  - generic [ref=e553]: 3 Pieces Wicked Boneless Combo
+                  - generic [ref=e556]: $12.95
+              - generic [ref=e557] [cursor=pointer]:
+                - generic [ref=e559]: ‌
+                - generic [ref=e561]:
+                  - generic [ref=e562]: 6 Pieces Wicked Boneless
+                  - generic [ref=e565]: $12.95
+              - generic [ref=e566] [cursor=pointer]:
+                - generic [ref=e568]: ‌
+                - generic [ref=e570]:
+                  - generic [ref=e571]: 6 Pieces Wicked Boneless Combo
+                  - generic [ref=e574]: $16.95
+              - generic [ref=e575] [cursor=pointer]:
+                - generic [ref=e577]: ‌
+                - generic [ref=e579]:
+                  - generic [ref=e580]: 1 Piece of Chicken
+                  - generic [ref=e581]:
+                    - generic [ref=e583]: $3.45
+                    - generic [ref=e585]: 1031 kJ Serves 1
+              - generic [ref=e589] [cursor=pointer]:
+                - generic [ref=e590]: 3 Pieces of Chicken
+                - generic [ref=e593]: $9.95
+              - generic [ref=e597] [cursor=pointer]:
+                - generic [ref=e598]: 3 Piece Combo
+                - generic [ref=e601]: $13.95
+              - generic [ref=e605] [cursor=pointer]:
+                - generic [ref=e606]: 6 Pieces of Chicken
+                - generic [ref=e609]: $17.95
+              - generic [ref=e613] [cursor=pointer]:
+                - generic [ref=e614]: 21 Pieces of Chicken
+                - generic [ref=e617]: $40.95
+              - generic [ref=e621] [cursor=pointer]:
+                - generic [ref=e622]: Original Crispy Fillet Piece
+                - generic [ref=e625]: $6.45
+              - generic [ref=e629] [cursor=pointer]:
+                - generic [ref=e630]: Zinger® Fillet Piece
+                - generic [ref=e633]: $6.45
+              - generic [ref=e637] [cursor=pointer]:
+                - generic [ref=e638]: Snack Popcorn Chicken®
+                - generic [ref=e641]: $2.95
+              - generic [ref=e645] [cursor=pointer]:
+                - generic [ref=e646]: Snack Popcorn Chicken® Combo
+                - generic [ref=e649]: $6.95
+              - generic [ref=e653] [cursor=pointer]:
+                - generic [ref=e654]: Regular Popcorn Chicken®
+                - generic [ref=e657]: $5.95
+              - generic [ref=e661] [cursor=pointer]:
+                - generic [ref=e662]: Regular Popcorn Chicken® Combo
+                - generic [ref=e665]: $9.95
+              - generic [ref=e669] [cursor=pointer]:
+                - generic [ref=e670]: Maxi Popcorn Chicken®
+                - generic [ref=e673]: $9.95
+              - generic [ref=e677] [cursor=pointer]:
+                - generic [ref=e678]: Maxi Popcorn Chicken® Combo
+                - generic [ref=e681]: $13.95
+              - generic [ref=e682] [cursor=pointer]:
+                - generic [ref=e684]: ‌
+                - generic:
+                  - img [ref=e686]
+                  - generic [ref=e692]: KIOSKONLY
+                - generic [ref=e694]:
+                  - generic [ref=e695]: 3 Wicked Wings®
+                  - generic [ref=e697]:
+                    - generic [ref=e698]: old price
+                    - generic [ref=e699]: $10.00
+                    - generic [ref=e700]: $7.45
+              - generic [ref=e701] [cursor=pointer]:
+                - generic [ref=e703]: ‌
+                - generic [ref=e705]:
+                  - generic [ref=e706]: 3 Wicked Wings® Combo
+                  - generic [ref=e709]: $11.45
+              - generic [ref=e710] [cursor=pointer]:
+                - generic [ref=e712]: ‌
+                - generic [ref=e714]:
+                  - generic [ref=e715]: 6 Wicked Wings®
+                  - generic [ref=e718]: $10.45
+              - generic [ref=e719] [cursor=pointer]:
+                - generic [ref=e721]: ‌
+                - generic [ref=e723]:
+                  - generic [ref=e724]: 6 Wicked Wings® Combo
+                  - generic [ref=e727]: $14.45
+              - generic [ref=e728] [cursor=pointer]:
+                - generic [ref=e730]: ‌
+                - generic [ref=e732]:
+                  - generic [ref=e733]: 10 Wicked Wings®
+                  - generic [ref=e736]: $14.95
+              - generic [ref=e737] [cursor=pointer]:
+                - generic [ref=e739]: ‌
+                - generic [ref=e741]:
+                  - generic [ref=e742]: 10 Wicked Wings® Combo
+                  - generic [ref=e745]: $18.95
+              - generic [ref=e746] [cursor=pointer]:
+                - generic [ref=e748]: ‌
+                - generic:
+                  - img [ref=e750]
+                  - generic [ref=e756]: TOP SELLER
+                - generic [ref=e758]:
+                  - generic [ref=e759]: 3 Original Tenders™
+                  - generic [ref=e761]:
+                    - generic [ref=e762]: old price
+                    - generic [ref=e763]: $40.00
+                    - generic [ref=e764]: $8.95
+              - generic [ref=e765] [cursor=pointer]:
+                - generic [ref=e767]: ‌
+                - generic [ref=e769]:
+                  - generic [ref=e770]: 3 Original Tenders™ Combo
+                  - generic [ref=e773]: $12.95
+              - generic [ref=e774] [cursor=pointer]:
+                - generic [ref=e776]: ‌
+                - generic [ref=e778]:
+                  - generic [ref=e779]: 5 Original Tenders™
+                  - generic [ref=e782]: $12.95
+              - generic [ref=e786] [cursor=pointer]:
+                - generic [ref=e787]: 5 Original Tenders™ Combo
+                - generic [ref=e790]: $16.95
+              - generic [ref=e794] [cursor=pointer]:
+                - generic [ref=e795]: 6 Nuggets
+                - generic [ref=e798]: $7.95
+              - generic [ref=e802] [cursor=pointer]:
+                - generic [ref=e803]: 6 Nugget Combo
+                - generic [ref=e806]: $11.95
+              - generic [ref=e810] [cursor=pointer]:
+                - generic [ref=e811]: 10 Nuggets
+                - generic [ref=e814]: $9.95
+              - generic [ref=e818] [cursor=pointer]:
+                - generic [ref=e819]: 10 Nugget Combo
+                - generic [ref=e822]: $13.95
+          - generic [ref=e824]:
+            - heading "SNACK HACKS" [level=2] [ref=e826]
+            - generic [ref=e827]:
+              - generic [ref=e828] [cursor=pointer]:
+                - generic [ref=e830]: ‌
+                - generic [ref=e832]:
+                  - generic [ref=e833]: Hashbrown
+                  - generic [ref=e836]: $2.50
+              - generic [ref=e840] [cursor=pointer]:
+                - generic [ref=e841]: Original Pepper Mayo Slider
+                - generic [ref=e844]: $3.95
+              - generic [ref=e848] [cursor=pointer]:
+                - generic [ref=e849]: Original BBQ Slider
+                - generic [ref=e852]: $3.95
+              - generic [ref=e856] [cursor=pointer]:
+                - generic [ref=e857]: Original Supercharged Slider
+                - generic [ref=e860]: $3.95
+              - generic [ref=e864] [cursor=pointer]:
+                - generic [ref=e865]: Snack Popcorn Chicken®
+                - generic [ref=e868]: $2.95
+              - generic [ref=e872] [cursor=pointer]:
+                - generic [ref=e873]: 3 Nuggets
+                - generic [ref=e876]: $2.95
+              - generic [ref=e880] [cursor=pointer]:
+                - generic [ref=e881]: 1 Piece of Chicken
+                - generic [ref=e884]: $3.45
+              - generic [ref=e888] [cursor=pointer]:
+                - generic [ref=e889]: Double Chocolate Mousse
+                - generic [ref=e892]: $3.65
+              - generic [ref=e896] [cursor=pointer]:
+                - generic [ref=e897]: Pepsi Freeze^
+                - generic [ref=e900]: $2.00
+              - generic [ref=e904] [cursor=pointer]:
+                - generic [ref=e905]: Mountain Dew Freeze^
+                - generic [ref=e908]: $2.00
+              - generic [ref=e912] [cursor=pointer]:
+                - generic [ref=e913]: Raspberry Freeze
+                - generic [ref=e916]: $2.00
+              - generic [ref=e920] [cursor=pointer]:
+                - generic [ref=e921]: Regular Pepsi Max
+                - generic [ref=e924]: $3.95
+              - generic [ref=e928] [cursor=pointer]:
+                - generic [ref=e929]: Regular Pepsi
+                - generic [ref=e932]: $3.95
+              - generic [ref=e936] [cursor=pointer]:
+                - generic [ref=e937]: Regular 7Up
+                - generic [ref=e940]: $3.95
+              - generic [ref=e944] [cursor=pointer]:
+                - generic [ref=e945]: Regular Mountain Dew
+                - generic [ref=e948]: $3.95
+              - generic [ref=e952] [cursor=pointer]:
+                - generic [ref=e953]: Regular Solo
+                - generic [ref=e956]: $3.95
+              - generic [ref=e960] [cursor=pointer]:
+                - generic [ref=e961]: Regular Sunkist No Sugar
+                - generic [ref=e964]: $3.95
+              - generic [ref=e968] [cursor=pointer]:
+                - generic [ref=e969]: Bottled Water
+                - generic [ref=e972]: $3.95
+              - generic [ref=e976] [cursor=pointer]:
+                - generic [ref=e977]: Sparkling Water
+                - generic [ref=e980]: $3.95
+          - generic [ref=e982]:
+            - heading "PROTEIN PICKS" [level=2] [ref=e984]
+            - generic [ref=e985]:
+              - generic [ref=e989] [cursor=pointer]:
+                - generic [ref=e990]: Zinger® Protein Pack
+                - generic [ref=e993]: $11.95
+              - generic [ref=e997] [cursor=pointer]:
+                - generic [ref=e998]: Zinger® Protein Bowl
+                - generic [ref=e1001]: $11.45
+              - generic [ref=e1005] [cursor=pointer]:
+                - generic [ref=e1006]: Zinger® Protein Bowl Combo
+                - generic [ref=e1009]: $15.45
+              - generic [ref=e1013] [cursor=pointer]:
+                - generic [ref=e1014]: Chris' Big Bro Combo
+                - generic [ref=e1017]: $11.95
+          - generic [ref=e1019]:
+            - heading "SHARED MEALS" [level=2] [ref=e1021]
+            - generic [ref=e1022]:
+              - generic [ref=e1026] [cursor=pointer]:
+                - generic [ref=e1027]: Footy Feed
+                - generic [ref=e1030]: $29.95
+              - generic [ref=e1034] [cursor=pointer]:
+                - generic [ref=e1035]: Family Feast
+                - generic [ref=e1038]: $39.95
+              - generic [ref=e1042] [cursor=pointer]:
+                - generic [ref=e1043]: Value Feast
+                - generic [ref=e1046]: $29.95
+              - generic [ref=e1050] [cursor=pointer]:
+                - generic [ref=e1051]: Burger Feast
+                - generic [ref=e1054]: $35.95
+              - generic [ref=e1058] [cursor=pointer]:
+                - generic [ref=e1059]: Giant Feast
+                - generic [ref=e1062]: $49.95
+              - generic [ref=e1066] [cursor=pointer]:
+                - generic [ref=e1067]: Mega Burger Feast
+                - generic [ref=e1070]: $49.95
+          - generic [ref=e1072]:
+            - heading "EVERYDAY VALUE" [level=2] [ref=e1074]
+            - generic [ref=e1075]:
+              - generic [ref=e1079] [cursor=pointer]:
+                - generic [ref=e1080]: $9.95 Luxe Lunch
+                - generic [ref=e1083]: $9.95
+              - generic [ref=e1087] [cursor=pointer]:
+                - generic [ref=e1088]: $24.95 Burger Dinner
+                - generic [ref=e1091]: $24.95
+              - generic [ref=e1095] [cursor=pointer]:
+                - generic [ref=e1096]: $9.95 Packed Lunch
+                - generic [ref=e1097]:
+                  - generic [ref=e1099]: $9.95
+                  - generic [ref=e1101]: 1234 kJ
+              - generic [ref=e1105] [cursor=pointer]:
+                - generic [ref=e1106]: $24.95 Boneless Dinner
+                - generic [ref=e1107]:
+                  - generic [ref=e1109]: $24.95
+                  - generic [ref=e1111]: 1234 kJ
+          - generic [ref=e1113]:
+            - heading "SIDES & DESSERTS" [level=1] [ref=e1115]
+            - generic [ref=e1116]:
+              - generic [ref=e1120] [cursor=pointer]:
+                - generic [ref=e1121]: Hashbrown
+                - generic [ref=e1124]: $2.50
+              - generic [ref=e1128] [cursor=pointer]:
+                - generic [ref=e1129]: Giant Liquid Gold Sauce
+                - generic [ref=e1132]: $3.00
+              - generic [ref=e1133] [cursor=pointer]:
+                - generic:
+                  - img [ref=e1136]
+                  - generic [ref=e1142]: EXCLUSIVE DEAL
+                - generic [ref=e1144]:
+                  - generic [ref=e1145]: Large Chips
+                  - generic [ref=e1147]:
+                    - generic [ref=e1148]: old price
+                    - generic [ref=e1149]: $4.00
+                    - generic [ref=e1150]: $5.65
+              - generic [ref=e1154] [cursor=pointer]:
+                - generic [ref=e1155]: Regular Chips
+                - generic [ref=e1158]: $3.95
+              - generic [ref=e1162] [cursor=pointer]:
+                - generic [ref=e1163]: Double Chocolate Mousse
+                - generic [ref=e1166]: $3.95
+              - generic [ref=e1170] [cursor=pointer]:
+                - generic [ref=e1171]: Crunchy Jalapeno Slaw
+                - generic [ref=e1174]: $6.45
+              - generic [ref=e1175] [cursor=pointer]:
+                - generic [ref=e1177]: ‌
+                - generic [ref=e1179]:
+                  - generic [ref=e1180]: Large Potato & Gravy
+                  - generic [ref=e1183]: $7.95
+              - generic [ref=e1184] [cursor=pointer]:
+                - generic [ref=e1186]: ‌
+                - generic [ref=e1188]:
+                  - generic [ref=e1189]: Regular Potato & Gravy
+                  - generic [ref=e1192]: $5.95
+              - generic [ref=e1196] [cursor=pointer]:
+                - generic [ref=e1197]: Large Coleslaw
+                - generic [ref=e1200]: $7.95
+              - generic [ref=e1204] [cursor=pointer]:
+                - generic [ref=e1205]: Regular Coleslaw
+                - generic [ref=e1208]: $5.95
+              - generic [ref=e1212] [cursor=pointer]:
+                - generic [ref=e1213]: Regular Gravy
+                - generic [ref=e1216]: $5.95
+              - generic [ref=e1220] [cursor=pointer]:
+                - generic [ref=e1221]: 4 Dipping Sauces
+                - generic [ref=e1224]: $2.00
+              - generic [ref=e1228] [cursor=pointer]:
+                - generic [ref=e1229]: Dipping Sauces
+                - generic [ref=e1232]: $0.80
+          - generic [ref=e1234]:
+            - heading "COLD DRINKS" [level=2] [ref=e1236]
+            - generic [ref=e1237]:
+              - generic [ref=e1241] [cursor=pointer]:
+                - generic [ref=e1242]: Raspberry Freeze
+                - generic [ref=e1245]: $2.00
+              - generic [ref=e1249] [cursor=pointer]:
+                - generic [ref=e1250]: Pepsi Freeze^
+                - generic [ref=e1253]: $2.00
+              - generic [ref=e1257] [cursor=pointer]:
+                - generic [ref=e1258]: Mountain Dew Freeze^
+                - generic [ref=e1261]: $2.00
+              - generic [ref=e1262] [cursor=pointer]:
+                - generic [ref=e1264]: ‌
+                - generic [ref=e1266]:
+                  - generic [ref=e1267]: Pepsi Max^
+                  - generic [ref=e1270]: $3.95
+              - generic [ref=e1271] [cursor=pointer]:
+                - generic [ref=e1273]: ‌
+                - generic [ref=e1275]:
+                  - generic [ref=e1276]: Pepsi^
+                  - generic [ref=e1279]: $3.95
+              - generic [ref=e1280] [cursor=pointer]:
+                - generic [ref=e1282]: ‌
+                - generic [ref=e1284]:
+                  - generic [ref=e1285]: 7Up
+                  - generic [ref=e1288]: $3.95
+              - generic [ref=e1289] [cursor=pointer]:
+                - generic [ref=e1291]: ‌
+                - generic [ref=e1293]:
+                  - generic [ref=e1294]: Mountain Dew
+                  - generic [ref=e1297]: $3.95
+              - generic [ref=e1298] [cursor=pointer]:
+                - generic [ref=e1300]: ‌
+                - generic [ref=e1302]:
+                  - generic [ref=e1303]: Solo
+                  - generic [ref=e1306]: $3.95
+              - generic [ref=e1307] [cursor=pointer]:
+                - generic [ref=e1309]: ‌
+                - generic [ref=e1311]:
+                  - generic [ref=e1312]: Sunkist No Sugar
+                  - generic [ref=e1315]: $3.95
+              - generic [ref=e1316] [cursor=pointer]:
+                - generic [ref=e1318]: ‌
+                - generic [ref=e1320]:
+                  - generic [ref=e1321]: Sparkling Water
+                  - generic [ref=e1324]: $3.95
+              - generic [ref=e1325] [cursor=pointer]:
+                - generic [ref=e1327]: ‌
+                - generic [ref=e1329]:
+                  - generic [ref=e1330]: Lipton Peach Ice Tea
+                  - generic [ref=e1333]: $4.95
+        - generic [ref=e1334]:
+          - generic [ref=e1335]: The average daily energy intake for an Australian adult is 8700KJ
+          - generic [ref=e1336]: ^ Pepsi Freeze & Mountain Dew Freeze contains caffeine. Mountain Dew Freeze is not recommended for children, pregnant or lactating women or individuals sensitive to caffeine.
+          - generic [ref=e1337]: Late night surcharges may apply to selected menu items at this store between 11:10pm-5:00am.
+    - img "back-to-top" [ref=e1339] [cursor=pointer]
+  - contentinfo [ref=e1341]:
+    - contentinfo [ref=e1342]:
+      - generic [ref=e1343]:
+        - generic [ref=e1344]:
+          - link "KFC LOGO" [ref=e1346] [cursor=pointer]:
+            - /url: /
+            - img "KFC LOGO" [ref=e1347]
+          - generic [ref=e1348]:
+            - generic [ref=e1349]:
+              - heading "Menu" [level=2] [ref=e1350]
+              - list [ref=e1351]:
+                - listitem [ref=e1352]:
+                  - link "Menu" [ref=e1353] [cursor=pointer]:
+                    - /url: /menu
+                - listitem [ref=e1354]:
+                  - link "Catering" [ref=e1355] [cursor=pointer]:
+                    - /url: /catering
+                - listitem [ref=e1356]:
+                  - link "Christmas Ordering" [ref=e1357] [cursor=pointer]:
+                    - /url: /start-order
+                - listitem [ref=e1358]:
+                  - link "Nutrition & Allergen Guide" [ref=e1359] [cursor=pointer]:
+                    - /url: /nutrition-allergen
+                - listitem [ref=e1360]:
+                  - link "Rewards" [ref=e1361] [cursor=pointer]:
+                    - /url: /promo-rewards
+            - generic [ref=e1362]:
+              - heading "Support" [level=2] [ref=e1363]
+              - list [ref=e1364]:
+                - listitem [ref=e1365]:
+                  - link "FAQ" [ref=e1366] [cursor=pointer]:
+                    - /url: /faq
+                - listitem [ref=e1367]:
+                  - link "Contact KFC" [ref=e1368] [cursor=pointer]:
+                    - /url: /contact-kfc
+                - listitem [ref=e1369]:
+                  - link "Promos & Rewards" [ref=e1370] [cursor=pointer]:
+                    - /url: /promos-rewards
+            - generic [ref=e1371]:
+              - heading "KFC Australia" [level=2] [ref=e1372]
+              - list [ref=e1373]:
+                - listitem [ref=e1374]:
+                  - link "About KFC Globalimg" [ref=e1375] [cursor=pointer]:
+                    - /url: https://global.kfc.com/
+                    - text: About KFC Global
+                    - img "img" [ref=e1376]
+                - listitem [ref=e1377]:
+                  - link "Social Impact" [ref=e1378] [cursor=pointer]:
+                    - /url: /social-impact
+                - listitem [ref=e1379]:
+                  - link "Meet the Colonel" [ref=e1380] [cursor=pointer]:
+                    - /url: /meet-the-colonel
+                - listitem [ref=e1381]:
+                  - link "KFC Delivery Service" [ref=e1382] [cursor=pointer]:
+                    - /url: /delivery
+                - listitem [ref=e1383]:
+                  - link "Training" [ref=e1384] [cursor=pointer]:
+                    - /url: /training-brand-page-karen
+                - listitem [ref=e1385]:
+                  - link "Responsible Disclosure" [ref=e1386] [cursor=pointer]:
+                    - /url: https://bugcrowd.com/a19f4258-c79b-4a4f-a8bc-d924f85d5c53/external/report
+            - generic [ref=e1387]:
+              - heading "Work With Us" [level=2] [ref=e1388]
+              - list [ref=e1389]:
+                - listitem [ref=e1390]:
+                  - link "Restaurant Jobsimg" [ref=e1391] [cursor=pointer]:
+                    - /url: https://careers.kfc.com.au/
+                    - text: Restaurant Jobs
+                    - img "img" [ref=e1392]
+                - listitem [ref=e1393]:
+                  - link "Corporate Jobsimg" [ref=e1394] [cursor=pointer]:
+                    - /url: https://careers.kfc.com.au/corporate
+                    - text: Corporate Jobs
+                    - img "img" [ref=e1395]
+          - generic [ref=e1396]:
+            - img "Find Store" [ref=e1397] [cursor=pointer]
+            - link "Find a KFC" [ref=e1398] [cursor=pointer]:
+              - /url: /
+          - generic [ref=e1400]:
+            - link "Download on the App Store" [ref=e1401] [cursor=pointer]:
+              - /url: https://kfcau.app.link/BreC0MT6Vab
+              - img "Download on the App Store" [ref=e1402]
+            - link "GET IT ON Google Play" [ref=e1403] [cursor=pointer]:
+              - /url: https://kfcau.app.link/wPrvMf6zRab
+              - img "GET IT ON Google Play" [ref=e1404]
+        - generic [ref=e1405]:
+          - generic [ref=e1408]:
+            - list [ref=e1409]:
+              - listitem [ref=e1410]:
+                - link "Privacy Policy" [ref=e1411] [cursor=pointer]:
+                  - /url: /privacy-policy
+              - listitem [ref=e1412]:
+                - link ".Terms of Use" [ref=e1413] [cursor=pointer]:
+                  - /url: /terms-conditions
+              - listitem [ref=e1414]:
+                - link ".Protected Disclosure" [ref=e1415] [cursor=pointer]:
+                  - /url: /protected-disclosure
+              - listitem [ref=e1416]:
+                - link ".Yum" [ref=e1417] [cursor=pointer]:
+                  - /url: https://www.yum.com/wps/portal/yumbrands/Yumbrands
+              - listitem [ref=e1418]:
+                - link ".Site Map" [ref=e1419] [cursor=pointer]:
+                  - /url: /sitemap
+            - paragraph [ref=e1420]: Copyright © KFC Australia. 2024 All Rights Reserved. build pwa-2601-0-3_3aa3ea5e
+          - list [ref=e1422]:
+            - listitem [ref=e1423]:
+              - link "Instagram" [ref=e1424] [cursor=pointer]:
+                - /url: https://www.instagram.com/kfcaustralia/?hl=en
+                - img "Instagram" [ref=e1425]
+            - listitem [ref=e1426]:
+              - link "Facebook" [ref=e1427] [cursor=pointer]:
+                - /url: https://www.facebook.com/KFCAustralia/
+                - img "Facebook" [ref=e1428]
+            - listitem [ref=e1429]:
+              - link "Twitter" [ref=e1430] [cursor=pointer]:
+                - /url: https://twitter.com/kfcaustralia?lang=en
+                - img "Twitter" [ref=e1431]
+            - listitem [ref=e1432]:
+              - link "Youtube" [ref=e1433] [cursor=pointer]:
+                - /url: https://www.youtube.com/user/KFCAustralia
+                - img "Youtube" [ref=e1434]
+            - listitem [ref=e1435]:
+              - link "Snapchat" [ref=e1436] [cursor=pointer]:
+                - /url: https://www.snapchat.com/add/kfcaustralia
+                - img "Snapchat" [ref=e1437]
+            - listitem [ref=e1438]:
+              - link "LinkedIn" [ref=e1439] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/kfc-south-pacific/
+                - img "LinkedIn" [ref=e1440]
+```
+
+# Test source
+
+```ts
+  1  | import { Locator, Page, expect } from '@playwright/test';
+  2  | import { BasePage } from '../pages/basePage';
+  3  | import { MyCartPage } from './myCartPage';
+  4  | 
+  5  | export class ProductPage extends BasePage {
+  6  |     private readonly addToOrderButton: Locator;
+  7  |     private readonly cartButton: Locator;
+  8  |     
+  9  | 
+  10 |     constructor(page: Page) {
+  11 |         super(page);
+  12 |         this.addToOrderButton = page.getByTestId('add-to-cart-handler');
+  13 |         this.cartButton = page.locator(".basket");
+  14 |     }
+  15 | 
+  16 |     async clickAddToOrderButton(): Promise<void> {
+> 17 |         await this.addToOrderButton.click();
+     |                                     ^ Error: locator.click: Test timeout of 30000ms exceeded.
+  18 |         await expect(this.cartButton).toHaveText('1', { timeout: 15000 });
+  19 |     }
+  20 | 
+  21 |     async clickCartButton(): Promise<MyCartPage> {
+  22 |         await this.cartButton.click();
+  23 |         return new MyCartPage(this.page)
+  24 |     }
+  25 | }
+```

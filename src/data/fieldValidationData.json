@@ -1,0 +1,10 @@
+{
+    "EmailField": {
+        "invalidValue": "test",
+        "validValue": "test@test.com"
+    },
+    "PhoneField": {
+        "invalidPrefix": "0312345678",
+        "validValue": "0412345678"
+    }
+}
