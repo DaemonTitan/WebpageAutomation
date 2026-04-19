@@ -88,47 +88,33 @@ export class CheckoutPage extends BasePage {
 
     async completeUserDetails(firstName: string, lastName: string, email: string, phone: string): Promise<void> {
         await this.fillText(this.firstNameField, firstName);
+        await expect(this.firstNameRequiredAlert).toBeHidden()
         await this.fillText(this.lastNameField, lastName);
+        await expect(this.lastNameRequiredAlert).toBeHidden()
         await this.fillText(this.emailAddressField, email);
+        await expect(this.invalidEmailAddressAlert).toBeHidden()
         await this.fillText(this.phoneNumberField, phone);
+        await expect(this.phoneNumberAlert).toBeHidden()
     }
 
     async validateFirstNameIsRequired(): Promise<void> {
-        await this.firstNameField.click();
-        await this.firstNameField.clear();
-        await this.firstNameField.blur();
+        await this.firstNameField.fill('');
         await expect(this.firstNameRequiredAlert).toBeVisible();
     }
 
     async validateLastNameIsRequired(): Promise<void> {
-        await this.lastNameField.click();
-        await this.lastNameField.clear();
-        await this.lastNameField.blur();
+        await this.lastNameField.fill('');
         await expect(this.lastNameRequiredAlert).toBeVisible();
     }
 
     async validatePhoneNumberRequires04Prefix(invalidPhoneNumber: string): Promise<void> {
         await this.fillText(this.phoneNumberField, invalidPhoneNumber);
-        await this.phoneNumberField.blur();
         await expect(this.phoneNumberAlert).toBeVisible();
-    }
-
-    async validatePhoneNumberAccepts04Prefix(validPhoneNumber: string): Promise<void> {
-        await this.fillText(this.phoneNumberField, validPhoneNumber);
-        await this.phoneNumberField.blur();
-        await expect(this.phoneNumberAlert).toBeHidden();
     }
 
     async validateInvalidEmailAddress(invalidEmail: string): Promise<void> {
         await this.fillText(this.emailAddressField, invalidEmail);
-        await this.emailAddressField.blur();
         await expect(this.invalidEmailAddressAlert).toBeVisible();
-    }
-
-    async validateValidEmailAddress(validEmail: string): Promise<void> {
-        await this.fillText(this.emailAddressField, validEmail);
-        await this.emailAddressField.blur();
-        await expect(this.invalidEmailAddressAlert).toBeHidden();
     }
 
     async isAddPaymentMethodDisabled(): Promise<boolean> {
@@ -146,18 +132,14 @@ export class CheckoutPage extends BasePage {
     }
 
     async enterCardDetails(cardNumber: string, expiryDate: string, securityCode: string): Promise<void> {
+        const cardNumberField = await this.waitForAdyenField(this.cardNumberFrame, 'Card number')
+        await cardNumberField.fill(cardNumber);
 
-        await this.cardNumberFrame
-            .getByRole('textbox', { name: 'Card number' })
-            .fill(cardNumber);
+        const expireDateField = await this.waitForAdyenField(this.expiryDateFrame, 'Expiry date')
+        await expireDateField.fill(expiryDate);
 
-        await this.expiryDateFrame
-            .getByRole('textbox', { name: 'Expiry date' })
-            .fill(expiryDate);
-
-        await this.securityCodeFrame
-            .getByRole('textbox', { name: 'Security code' })
-            .fill(securityCode);
+        const securityCodeField = await this.waitForAdyenField(this.securityCodeFrame, 'Security code')
+        await securityCodeField.fill(securityCode);
     }
 
     async clickPayButton(): Promise<OrderConfirmationPage> {

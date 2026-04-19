@@ -3,7 +3,7 @@
     "lastNAme": "Smith",
     "email": "john.smith@mail.com",
     "mobile": "0412345678",
-    "cardNumber": "4111 1111 1111 1111",
-    "expireDate": "03/30",
+    "cardNumber": "4111111111111111",
+    "expireDate": "0330",
     "cvc": "737"
 }

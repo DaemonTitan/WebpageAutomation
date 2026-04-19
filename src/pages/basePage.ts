@@ -1,4 +1,4 @@
-import { Locator, Page, expect} from '@playwright/test';
+import { FrameLocator, Locator, Page, expect} from '@playwright/test';
 
 export class BasePage {
     readonly page: Page;
@@ -66,6 +66,12 @@ export class BasePage {
         }
 
         throw new Error(`No matching item found for "${targetText}"`);
+    }
+
+    protected async waitForAdyenField(frame: FrameLocator, roleName: string, timeout = 30000) {
+        const adyenField = frame.getByRole('textbox', { name: roleName });
+        await adyenField.waitFor({state: 'visible', timeout: timeout});
+        return adyenField;
     }
 
     

@@ -1,5 +1,6 @@
 import { expect, Locator, Page } from '@playwright/test';
 import { BasePage } from '../pages/basePage';
+import { ApiEndpoints } from '../constants/endpoints';
 import { MenuPage } from './menuPage';
 
 export class HomePage extends BasePage{
@@ -19,7 +20,7 @@ export class HomePage extends BasePage{
         this.setLocationButton = page.getByTestId('set-location-button');
         this.pickupButton = page.getByTestId('disposition-order-click-handler-Disposition - Pickup');
         this.storeSearchField = page.getByTestId('store-search-input');
-        this.suggesAddressList = page.locator('.suggestion-list');
+        this.suggesAddressList = page.locator('.suggested-address-alignment-delivery');
         this.storeName = page.getByTestId('store-name');
         this.orderHereButton = page.getByTestId('schedule-order');
         this.viewMenuButton = page.getByTestId('confirm-button-handler');
@@ -27,6 +28,29 @@ export class HomePage extends BasePage{
 
     async logoIsVisible(): Promise<void> {
         await expect(this.logo).toBeVisible();
+    }
+
+    async waitForGoogleMapsScript(): Promise<void> {
+        await this.page.waitForResponse(
+            response =>
+                response.url().startsWith(ApiEndpoints.googleMapsScript) &&
+                response.status() === 200,
+            { timeout: 15000 },
+        );
+
+        await this.page.waitForFunction(
+            () =>
+                Boolean(
+                    (window as typeof window & {
+                        google?: {
+                            maps?: {
+                                places?: unknown;
+                            };
+                        };
+                    }).google?.maps?.places,
+                ),
+            { timeout: 15000 },
+        );
     }
 
     async clickSetLocationButton(): Promise<void> {

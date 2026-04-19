@@ -22,6 +22,9 @@ WebpageAutomation/
 │   ├── config/
 │   │   ├── env.ts
 │   │   └── pagefixture.ts
+│   ├── constants/
+│   │   ├── endpoints.ts
+│   │   └── fixedValues.ts
 │   ├── data/
 │   │   ├── fieldValidationData.json
 │   │   ├── storeDetails.json
@@ -35,7 +38,6 @@ WebpageAutomation/
 │   │   ├── checkoutPage.ts
 │   │   └── orderConfirmationPage.ts
 │   └── tests/
-│       ├── guestInfoValidation.spec.ts
 │       └── orderProcessTest.spec.ts
 ├── playwright.config.ts
 ├── package.json
@@ -61,6 +63,7 @@ This framework uses the Page Object Model pattern.
 - Page actions and locators live in `src/pages`.
 - Shared Playwright fixtures live in `src/config/pagefixture.ts`.
 - Environment selection is handled by `src/config/env.ts`.
+- API endpoint constants, such as the Google Maps script URL, live in `src/constants/endpoints.ts`.
 - Test data is stored in JSON files under `src/data`.
 - Guest field validation data is stored in `src/data/fieldValidationData.json`.
 - Browser projects are configured in `playwright.config.ts`.
@@ -69,12 +72,6 @@ The main order flow test is:
 
 ```text
 src/tests/orderProcessTest.spec.ts
-```
-
-Guest information field validation is covered in:
-
-```text
-src/tests/guestInfoValidation.spec.ts
 ```
 
 The tests use page objects such as `HomePage`, `MenuPage`, `ProductPage`, `MyCartPage`, `CheckoutPage`, and `OrderConfirmationPage` through custom fixtures.
@@ -180,12 +177,6 @@ Run the order process test only:
 
 ```bash
 npx playwright test src/tests/orderProcessTest.spec.ts
-```
-
-Run the guest information validation test only:
-
-```bash
-npx playwright test src/tests/guestInfoValidation.spec.ts
 ```
 
 Run only Chromium:

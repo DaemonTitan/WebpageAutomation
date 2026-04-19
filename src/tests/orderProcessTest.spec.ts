@@ -15,20 +15,10 @@
 import { test, expect } from '../config/pagefixture';
 import * as testData from '../data/userDetail.json';
 import * as storeData from '../data/storeDetails.json';
-import * as fieldValidationData from '../data/fieldValidationData.json'
+import * as fieldValidationData from '../data/fieldValidationData.json';
 
 test.beforeEach(async({page, homePage}) => {
-    await page.goto('/');
-    await page.waitForTimeout(2000);
-
-    // Home Page set pickup store
-    await homePage.logoIsVisible();
-    await homePage.clickSetLocationButton();
-    await homePage.selectPickUp();
-    await homePage.enterSearchQuery(storeData.storeLocation);
-    await homePage.selectTargetLocation(storeData.storeLocation);
-    await homePage.selectTargetStoreFromList(storeData.storeLocation);
-    await homePage.clickViewMenuButton();
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
 })
 
 test.afterEach(async({page}) => {
@@ -38,34 +28,48 @@ test.afterEach(async({page}) => {
   });
 })
 
-test('Order process', async({page, menuPage, productPage, mycartPage, checkoutPage, orderConfirmationPage}) => {
+test('Order process', async({page, homePage, menuPage, productPage, mycartPage, checkoutPage, orderConfirmationPage}) => {
+    
+    // Home Page set pickup store
+    await homePage.waitForGoogleMapsScript();
+    await homePage.logoIsVisible();
+    await homePage.clickSetLocationButton();
+    await homePage.selectPickUp();
+    await homePage.enterSearchQuery(storeData.storeLocation);
+    await homePage.selectTargetLocation(storeData.storeLocation);
+    await homePage.selectTargetStoreFromList(storeData.storeLocation);
+    await homePage.clickViewMenuButton();
+    
+    
     // Select product from menu
     await menuPage.selectSideMenu(storeData.selectMenu);
     await menuPage.selectProduct(storeData.selectProduct);
 
-    // // Add product to cart
+    // Add product to cart
     await productPage.clickAddToOrderButton();
     await productPage.clickCartButton();
 
-    // // Click check out from my cart page
+    // Click check out from my cart page
     await mycartPage.clickCheckOut();
 
-    // verify check out page
+    // Verify check out page
     await checkoutPage.clickChevron();
     expect(checkoutPage.validateSelectProduct(storeData.selectProduct)).toBeTruthy();
     expect(checkoutPage.validateTotalPrice(storeData.totalPrice)).toBeTruthy();
     await checkoutPage.clickContinueAsAGuestButton();
-
+    // MARK: Field Level Validation
+    await checkoutPage.validateFirstNameIsRequired();
+    await checkoutPage.validateLastNameIsRequired();
+    await checkoutPage.validatePhoneNumberRequires04Prefix(fieldValidationData.PhoneField.invalidPrefix);
+    await checkoutPage.validateInvalidEmailAddress(fieldValidationData.EmailField.invalidValue);
 
     await checkoutPage.completeUserDetails(testData.firstName, 
                                             testData.lastNAme,
                                             testData.email, 
                                             testData.mobile);
     await checkoutPage.clickAddPaymentMethod();
-
     await checkoutPage.enterCardDetails(testData.cardNumber, testData.expireDate, testData.cvc);
     await checkoutPage.clickPayButton();
 
     await orderConfirmationPage.confirmationMessageIsVisible();
-    
 })
