@@ -35,7 +35,7 @@ export class MenuPage extends BasePage {
         await productCard.scrollIntoViewIfNeeded();
 
         await Promise.all([
-            this.page.waitForURL('/menu/sides-desserts/4-dipping-sauces'),
+            this.page.waitForURL('/menu/sides-desserts/4-dipping-sauces', {timeout: 30000}),
             productCard.click()
         ])
         

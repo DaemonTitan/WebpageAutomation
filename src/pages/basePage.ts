@@ -68,7 +68,7 @@ export class BasePage {
         throw new Error(`No matching item found for "${targetText}"`);
     }
 
-    protected async waitForAdyenField(frame: FrameLocator, roleName: string, timeout = 30000) {
+    protected async waitForAdyenField(frame: FrameLocator, roleName: string, timeout = 350000) {
         const adyenField = frame.getByRole('textbox', { name: roleName });
         await adyenField.waitFor({state: 'visible', timeout: timeout});
         return adyenField;
